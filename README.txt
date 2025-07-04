@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# asPEEK
-# asPEEK
-=======
 ./
  - demo : contains a compiled asPEEK server 
  - example : contains the source code of the demo
@@ -21,4 +17,3 @@
  
  
 @@ Muhammed Ikbal Akpaca 2013 @@
->>>>>>> 9633a86 (github)

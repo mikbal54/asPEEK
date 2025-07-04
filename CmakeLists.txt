@@ -1,0 +1,51 @@
+cmake_minimum_required(VERSION 2.6) 
+set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE) 
+cmake_policy(SET CMP0003 NEW) 
+ 
+project(asPEEK) 
+
+
+################# EDIT THESE #################
+# SET ANGELSCRIPT SDK PATH. one that has {add_on,angelscript,docs,samples,tests} subfolders
+set(ANGELSCRIPT_SDK "C:/OyunLibs2012/Angelscript/trunk/sdk")
+# SET boost directory. it should have lib subdirectory with .lib or .a files
+set(BOOST_SDK "C:/OyunLibs2012/boost")
+##############################################
+
+link_directories(
+	${ANGELSCRIPT_SDK}/angelscript/lib
+	${BOOST_SDK}/lib
+)
+
+file(GLOB Source
+	"src/*.cpp"
+)
+
+file(GLOB_RECURSE Source_websocketpp
+	"websocketpp/*.cpp"
+	"websocketpp/*.c"
+)
+
+set(Source_Other
+	${ANGELSCRIPT_SDK}/add_on/scriptarray/scriptarray.cpp
+)
+
+include_directories(
+	include
+	websocketpp
+	${ANGELSCRIPT_SDK}/angelscript/include
+	${ANGELSCRIPT_SDK}/add_on # this is optional. If you want array visualization keep it
+	${BOOST_SDK}
+)
+
+
+add_library(asPEEK 
+ ${Source}
+ ${Source_Other}
+ ${Source_websocketpp}
+ )
+ 
+SET_TARGET_PROPERTIES(asPEEK PROPERTIES DEBUG_POSTFIX d )
+
+source_group("SOURCES" FILES ${Source})
+source_group("websocketpp" FILES ${Source_websocketpp} )
