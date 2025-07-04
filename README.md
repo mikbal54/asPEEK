@@ -1,6 +1,10 @@
-<<<<<<< HEAD
+
 # asPEEK
-# asPEEK
+
+this a remote gui debugger for the angelscript language.
+
+written in C++ and javascript. using websockets and other various web tech
+
 =======
 ./
  - demo : contains a compiled asPEEK server 
